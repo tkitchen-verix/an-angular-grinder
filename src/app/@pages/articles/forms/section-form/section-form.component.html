@@ -1,0 +1,100 @@
+<mat-expansion-panel [expanded]="true" hideToggle="true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Add Sections
+    </mat-panel-title>
+    <mat-panel-description>
+      enter your chapter below . . .
+      <mat-icon>map</mat-icon>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <mat-form-field class="example-full-width">
+  <input matInput placeholder="Section Title"
+  name="Title"
+  [(ngModel)]="temp_section.title">
+  </mat-form-field>
+  <mat-form-field class="example-form-field">
+  <input matInput type="text" name="imageUrl" placeholder="Section Image (optional)" [(ngModel)]="temp_section.imageUrl"/>
+  <button mat-button
+  *ngIf="temp_section.imageUrl"
+  matSuffix mat-icon-button aria-label="Add" (click)="setHeaderImage()">
+  <mat-icon>add</mat-icon>
+  </button>
+  </mat-form-field>
+  <!--<div *ngIf="temp_section.imageUrl">-->
+  <!--<img [src]="temp_section.imageUrl" width="150" height="150">-->
+  <!--</div>-->
+  <br>
+  <mat-form-field class="example-full-width">
+  <textarea matInput
+  name="description"
+  placeholder="Description"
+  style="min-height: 100px;"
+  [(ngModel)]="temp_section.description"
+  ></textarea>
+  </mat-form-field>
+  <button mat-raised-button (click)="addBlock()">Add Block</button>
+  <div *ngFor="let block of temp_section.blocks">
+    <h6>block</h6>
+    <mat-form-field class="example-full-width">
+    <input matInput placeholder="Block Title"
+    name="title"
+    [(ngModel)]="block.title">
+    </mat-form-field>
+  </div>
+
+  <mat-action-row>
+    <button mat-mini-fab (click)="onAdd()">
+      <mat-icon aria-label="">add</mat-icon>
+    </button>
+  </mat-action-row>
+</mat-expansion-panel>
+
+<!--<mat-card>-->
+  <!--<mat-card-header>-->
+
+  <!--</mat-card-header>-->
+  <!--<mat-card-content>-->
+    <!--<mat-form-field class="example-full-width">-->
+      <!--<input matInput placeholder="Section Title"-->
+             <!--name="Title"-->
+             <!--[(ngModel)]="temp_section.title">-->
+    <!--</mat-form-field>-->
+    <!--<mat-form-field class="example-form-field">-->
+      <!--<input matInput type="text" name="imageUrl" placeholder="Section Image (optional)" [(ngModel)]="temp_section.imageUrl"/>-->
+      <!--<button mat-button-->
+              <!--*ngIf="temp_section.imageUrl"-->
+              <!--matSuffix mat-icon-button aria-label="Add" (click)="setHeaderImage()">-->
+        <!--<mat-icon>add</mat-icon>-->
+      <!--</button>-->
+    <!--</mat-form-field>-->
+    <!--&lt;!&ndash;<div *ngIf="temp_section.imageUrl">&ndash;&gt;-->
+      <!--&lt;!&ndash;<img [src]="temp_section.imageUrl" width="150" height="150">&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--<br>-->
+    <!--<mat-form-field class="example-full-width">-->
+              <!--<textarea matInput-->
+                        <!--name="description"-->
+                        <!--placeholder="Description"-->
+                        <!--style="min-height: 100px;"-->
+                        <!--[(ngModel)]="temp_section.description"-->
+              <!--&gt;</textarea>-->
+    <!--</mat-form-field>-->
+    <!--<div *ngFor="let block of temp_section.blocks">-->
+      <!--<mat-form-field class="example-full-width">-->
+        <!--<input matInput placeholder="Block Title"-->
+               <!--name="Title"-->
+               <!--[(ngModel)]="block.title">-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
+  <!--</mat-card-content>-->
+  <!--<mat-card-actions style="display: flex;">-->
+    <!--<span style="flex: 1 1 auto"></span>-->
+    <!--<span>-->
+          <!--<button mat-mini-fab (click)="onAdd()">-->
+            <!--<mat-icon aria-label="">add</mat-icon>-->
+          <!--</button>-->
+        <!--</span>-->
+  <!--</mat-card-actions>-->
+<!--</mat-card>-->

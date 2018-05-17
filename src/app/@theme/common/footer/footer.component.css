@@ -1,0 +1,21 @@
+.footer-container {
+  height: 320px;
+  /*-webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);*/
+  /*clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);*/
+  display: inline-flex;
+  width:100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
+}
+.carousel-icon-container {
+  width: 25%;
+}
+.carousel-icon {
+  font-size: 52px;
+  height: 56px;
+  width: 56px;
+  margin-top: 12px;
+}

@@ -1,0 +1,54 @@
+<mat-toolbar>
+    <span>
+      <button mat-raised-button (click)="back()">BACK</button>
+    </span>
+  <span *ngIf="!small">
+            <mat-slide-toggle
+              class="example-margin"
+              [color]="color"
+              [checked]="checked"
+              (change)="toggleLayout($event)"
+              [disabled]="disabled">
+        Slide me!
+      </mat-slide-toggle>
+    </span>
+</mat-toolbar>
+<mat-grid-list [cols]="mainCols" rowHeight="160px" >
+
+  <mat-grid-tile [colspan]="1" [rowspan]="sectionForm.offsetHeight/160">
+    <div class="section-form-container">
+      <div class="section-form-wrapper" #sectionForm>
+        <app-section-form [temp_section]="temp_section" (_addSection)="addSection()"></app-section-form>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="(model.sections.length/2)+2"
+                 style="display: flex;
+                 align-content: flex-start !important;
+                 align-items: flex-start !important;">
+    <div class="grid-item">
+
+      <div>
+        <div style="display: block; flex: 1 1 auto;">
+          <mat-toolbar style="padding-right:20%;">
+            <span><h2 class="dark-text">{{model.title}}</h2></span>
+            <span class="fill-space"></span>
+            <mat-chip-list>
+              <mat-chip *ngFor="let tag of model.tags">{{tag}}</mat-chip>
+            </mat-chip-list>
+          </mat-toolbar>
+        </div>
+        <div style="display: inline-block;">
+          <span style="width: 20%;"></span>
+        </div>
+        <app-section-grid [model]="model.sections" (_model_change)="handleChange($event)"></app-section-grid>
+      </div>
+
+    </div>
+
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+

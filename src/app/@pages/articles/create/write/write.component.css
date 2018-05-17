@@ -1,0 +1,9 @@
+.section-form-container {
+  width: 80%;
+}
+.section-form-wrapper {
+  margin: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+}

@@ -1,0 +1,35 @@
+<mat-toolbar class="primary text-primary overflow-on mat-elevation-z6">
+  <mat-toolbar-row class="slim-toolbar  overflow-on">
+        <!--<span *ngIf="model.brandUrl">-->
+          <!--<img class="app-nav-brand" [src]="model.brandUrl" routerLink="/home">-->
+        <!--</span>-->
+    <span class="app-nav-title">{{model.title}}</span>
+    <span class="fill-space"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row  class="sub-toolbar overflow-on">
+    <span class="padding-left-2"></span>
+    <!--<span class="app-nav-subtitle">{{model.subTitle}}</span>-->
+    <span>
+          <img class="app-nav-brand" src="assets/brand/angular.png">
+        </span>
+    <span>
+          <img class="app-nav-brand" src="assets/brand/Typescript_logo.png">
+        </span>
+    <span>
+          <img class="app-nav-brand" src="assets/brand/firebase.png">
+        </span>
+    <span class="fill-space"></span>
+  </mat-toolbar-row>
+  <mat-toolbar-row  class="sub-toolbar overflow-on">
+    <a mat-button routerLink="/home">HOME</a>
+    <a mat-button routerLink="/articles">ARTICLES</a>
+    <span class="fill-space"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+

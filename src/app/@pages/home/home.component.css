@@ -1,0 +1,27 @@
+.grid-container {
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background: linear-gradient(135deg, transparent 20px, white 20px);
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+.cutCorner {
+  position:relative; background-color:blue;
+  border:1px solid silver;
+}
+
+

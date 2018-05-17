@@ -1,0 +1,57 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  /*background: linear-gradient(135deg, transparent 20px, white 20px);*/
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+.cutCorner {
+  position:relative; background-color:blue;
+  border:1px solid silver;
+}
+mat-chip {
+  height: 18px;
+}
+.mat-chip.mat-standard-chip {
+  background-color: #00796B;
+  color: #FFFFFF;
+}
+.article-card-content {
+  padding-top: 1rem;
+}
+.chip-holder {
+  display: flex;
+}
+.card-image-full-width {
+  padding-top: 1rem;
+  width: 100%;
+  display: block;
+}
+.card-img {
+  position: relative;
+  display: block;
+  max-width:230px;
+  max-height:180px;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+mat-card-actions {
+  padding-top: 1rem;
+}

@@ -1,0 +1,73 @@
+<div class="centered-grid">
+  <div class="form-container" *ngIf="model">
+    <mat-card>
+      <mat-card-header>
+        <h3>Add A new Article</h3>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Article Title"
+                   name="title"
+                   [(ngModel)]="model.title">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Article Subtitle"
+                   name="subtitle"
+                   [(ngModel)]="model.subtitle">
+          </mat-form-field>
+
+          <mat-form-field class="example-form-field">
+            <input matInput type="text" name="headerimage" placeholder="Header Image" [(ngModel)]="headerImg"/>
+            <button mat-button
+                    *ngIf="headerImg"
+                    matSuffix mat-icon-button aria-label="Add" (click)="setHeaderImage()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </mat-form-field>
+          <div *ngIf="model.headerImg">
+            <img [src]="model.headerImg" width="150" height="150">
+          </div>
+          <br>
+          <mat-form-field class="example-form-field">
+            <input matInput type="text" name="tag" placeholder="Tags" [(ngModel)]="tag"/>
+            <button mat-button
+                    *ngIf="tag"
+                    matSuffix mat-icon-button aria-label="Add" (click)="addTag()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of model.tags">{{tag}}</mat-chip>
+          </mat-chip-list>
+
+          <div>
+            <!--<mat-form-field class="example-full-width">-->
+            <!--<textarea matInput-->
+            <!--name="body"-->
+            <!--placeholder="Text Section"-->
+            <!--[(ngModel)]="model.body"-->
+            <!--&gt;</textarea>-->
+
+
+            <!--</mat-form-field>-->
+          </div>
+
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="accent" type="submit"
+                class="btn btn-success" (click)="preview()">Preview</button>
+        <button mat-raised-button color="accent" type="submit"
+                class="btn btn-success" (click)="submit()">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+  <div>
+  </div>
+
+
+</div>
+

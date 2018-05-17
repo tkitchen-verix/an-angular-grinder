@@ -1,0 +1,26 @@
+<mat-toolbar style="padding-right:20%;">
+  <button mat-button>
+    <mat-icon aria-label="delete section" (mouseenter)="checkGrabbing()">delete</mat-icon> BIN IT?
+  </button>
+</mat-toolbar>
+<mat-grid-list [cols]="grid_columns" [rowHeight]="$grid.rowHeight" *ngIf="model.length > 0" >
+  <div *ngFor="let section of model;   let i=index">
+    <mat-grid-tile *ngIf="i < 6" [colspan]="1" [rowspan]="1">
+      <mat-card class="section-card"  (mouseup)="insertSection(i)" (mousedown)="grabSection($event,section)">
+        <p>{{section.title}}</p>
+        <mat-chip class="primary">{{section.type}}</mat-chip>
+        <p>{{section.description}}</p>
+      </mat-card>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>
+<mat-card
+  style="position: absolute;"
+  [style.top.px]="transit_y-150"
+  [style.left.px]="transit_x-20"
+  *ngIf="grabbing"
+  class="grabbed-section-card">
+  <p>{{section_in_transit.title}}</p>
+  <mat-chip class="primary">{{section_in_transit.type}}</mat-chip>
+  <p>{{section_in_transit.description}}</p>
+</mat-card>

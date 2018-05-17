@@ -1,0 +1,47 @@
+.slim-toolbar {
+  /*height: 2rem;*/
+  /*font-size: small;*/
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.sub-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.app-navbar {
+  min-height: 38px;
+  max-height: 42px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.app-nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 38px;
+  max-height: 42px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 16px;
+}
+.app-nav-brand {
+  height: 32px;
+  padding-right: 1rem;
+}
+.app-nav-subtitle {
+  padding-left: 2rem;
+}
+.app-nav-title {
+  padding-bottom: 4px;
+}

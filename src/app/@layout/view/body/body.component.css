@@ -1,0 +1,27 @@
+.view-body {
+  margin-top: 3rem;
+}
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.sections .section {
+  flex: 1 0 100%;
+  box-sizing: border-box;
+  color: #171e42;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.section > * {
+  flex: 1 0 10%;
+}
+.grid-row {
+  display: grid;
+  padding: 3rem;
+  padding-top: 0;
+  width: 100%;
+}

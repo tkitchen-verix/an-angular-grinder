@@ -1,0 +1,10 @@
+<div *ngIf="settings">
+  <div *ngIf="settings.title !== ''">
+    {{settings.title}}
+  </div>
+  <div class="blocks" *ngFor="let blockSettings of settings.blocks">
+    <div>
+      <app-block [settings]="blockSettings"></app-block>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="view-body" *ngIf="settings">
+  <div class="grid-container">
+    <div class="grid-row" *ngFor="let section of settings.sections">
+      <app-section [settings]="section"></app-section>
+    </div>
+  </div>
+</div>

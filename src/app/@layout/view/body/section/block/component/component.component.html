@@ -1,0 +1,29 @@
+<div *ngIf="settings.template && settings.text">
+
+  <div [ngSwitch]="settings.template">
+    <div *ngSwitchCase="'Information'">
+      <div>
+        <div>
+          <div class="well" *ngIf="settings.text">
+            <h3>{{settings.text.title}}</h3>
+            <div *ngIf="settings.text">
+              <div *ngFor="let para of settings.text.paragraphs">
+              <div class="ret-paragraph">
+                {{para.body}}
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchDefault>
+      <div>
+        <div>
+          DEFAULT CATCH ALL
+          {{settings.id}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

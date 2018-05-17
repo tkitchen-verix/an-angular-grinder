@@ -1,0 +1,39 @@
+<mat-toolbar class="transparent">
+  <button mat-raised-button color="primary" routerLink="/articles/create">Create</button>
+</mat-toolbar>
+<mat-grid-list [cols]="$grid.cols" [rowHeight]="$grid.rowHeight">
+  <mat-grid-tile *ngFor="let item of $articles | async" [colspan]="1" [rowspan]="1">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{item.title}}
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>Expand</button>
+            <button mat-menu-item>Remove</button>
+          </mat-menu>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <mat-chip-list class="chip-holder" *ngIf="item.tags">
+          <mat-chip>{{item.tags[0]}}</mat-chip>
+        </mat-chip-list>
+        <div class="card-image-full-width" >
+          <div *ngIf="item.headerImg">
+            <img [src]="item.headerImg" class="card-img">
+          </div>
+        </div>
+        <div class="article-card-content">
+          {{item.subtitle}}
+        </div>
+        <mat-card-actions>
+          <button mat-raised-button color="primary"
+                  (click)="readArticle(item)"
+          >Read Now</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

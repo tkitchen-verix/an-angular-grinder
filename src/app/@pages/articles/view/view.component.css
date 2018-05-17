@@ -1,0 +1,17 @@
+.article-view-card {
+  min-width: 80vw;
+  min-height: 425px;
+}
+.article-meta-header {
+  width: 80vw;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+h3 {
+  margin: 0 !important;
+  line-height: 32px;
+  margin-left: 4rem;
+  float: right;
+}
