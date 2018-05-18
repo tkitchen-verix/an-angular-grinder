@@ -1,66 +1,103 @@
-<div class="centered-grid">
+<div class="container">
   <div class="form-container" *ngIf="model">
-    <mat-card>
-      <mat-card-header>
-        <h3>Add A new Article</h3>
-      </mat-card-header>
+    <mat-card class="article-start-card">
+      <!--<mat-card-header>-->
+        <!--<p class="dark-text">Add A new Article</p>-->
+      <!--</mat-card-header>-->
+
       <mat-card-content>
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Article Title"
-                   name="title"
-                   [(ngModel)]="model.title">
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Article Subtitle"
-                   name="subtitle"
-                   [(ngModel)]="model.subtitle">
-          </mat-form-field>
-
-          <mat-form-field class="example-form-field">
-            <input matInput type="text" name="headerimage" placeholder="Header Image" [(ngModel)]="headerImg"/>
-            <button mat-button
-                    *ngIf="headerImg"
-                    matSuffix mat-icon-button aria-label="Add" (click)="setHeaderImage()">
-              <mat-icon>add</mat-icon>
-            </button>
-          </mat-form-field>
-          <div *ngIf="model.headerImg">
-            <img [src]="model.headerImg" width="150" height="150">
-          </div>
-          <br>
-          <mat-form-field class="example-form-field">
-            <input matInput type="text" name="tag" placeholder="Tags" [(ngModel)]="tag"/>
-            <button mat-button
-                    *ngIf="tag"
-                    matSuffix mat-icon-button aria-label="Add" (click)="addTag()">
-              <mat-icon>add</mat-icon>
-            </button>
-          </mat-form-field>
-
-          <mat-chip-list>
-            <mat-chip *ngFor="let tag of model.tags">{{tag}}</mat-chip>
-          </mat-chip-list>
-
-          <div>
-            <!--<mat-form-field class="example-full-width">-->
-            <!--<textarea matInput-->
-            <!--name="body"-->
-            <!--placeholder="Text Section"-->
-            <!--[(ngModel)]="model.body"-->
-            <!--&gt;</textarea>-->
+        <mat-card-header>
+          <p class="article-start-text-header dark-text">Add a new Article</p>
+        </mat-card-header>
+        <mat-grid-list cols="12" rowHeight="350px">
+          <mat-grid-tile [colspan]="4" [rowspan]="1" class="full-width hide-xs">
+            <div class="article-start-textblock">
+              <div>
+                <p>Create your article, start with the basic info . . . </p>
+              </div>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="8" [rowspan]="1" class="full-width">
+            <form class="article-start-form" #startForm="ngForm" >
+              <!-- titles -->
+              <mat-form-field class="an-form-field" style="width: 100%; font-size: 18px;">
+                <input matInput
+                       required
+                       placeholder="Article Title"
+                       name="title"
+                       [(ngModel)]="model.title">
+                <div  *ngIf="">
+                  <mat-icon>check</mat-icon>
+                </div>
+              </mat-form-field>
+              <mat-form-field class="an-form-field" style="width: 100%;">
+                <input matInput placeholder="Article Subtitle"
+                       name="subtitle"
+                       [(ngModel)]="model.subtitle">
+              </mat-form-field>
+              <!-- titles end -->
 
 
-            <!--</mat-form-field>-->
-          </div>
+              <div style="width: 100%; display: inline-flex">
+                <div style="width: 50%;">
+                  <mat-form-field class="an-form-field" >
+                    <input matInput type="text" name="headerimage" placeholder="Header Image" [(ngModel)]="headerImg"/>
+                    <button mat-button
+                            *ngIf="headerImg"
+                            matSuffix mat-icon-button aria-label="Add" (click)="setHeaderImage()">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </mat-form-field>
 
-        </form>
+                  <mat-form-field class="an-form-field">
+                    <mat-select placeholder="Category" name="category" [ngModel]="model.category">
+                      <mat-option *ngFor="let category of categories" [value]="category.value">
+                        {{ category.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <!--tags-->
+                  <mat-form-field class="an-form-field">
+                    <input matInput type="text" name="tag" placeholder="Tags" [(ngModel)]="tag"/>
+                    <button mat-button
+                            *ngIf="tag"
+                            matSuffix mat-icon-button aria-label="Add" (click)="addTag()">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </mat-form-field>
+                  <mat-chip-list>
+                    <mat-chip *ngFor="let tag of model.tags">{{tag}}</mat-chip>
+                  </mat-chip-list>
+                  <!--tags end-->
+                </div>
+                <div style="width: 50%;">
+                  <div class="header-image-placeholder">
+                    <div *ngIf="model.headerImg">
+                      <img [src]="model.headerImg" width="150" height="150">
+                      <div  style="position: absolute; margin-top: -40px; margin-left: 2rem; float: right;">
+                        <button color="primary" class="warn" mat-raised-button (click)="model.headerImg = undefined">CHANGE</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+              </div>
+            </form>
+          </mat-grid-tile>
+        </mat-grid-list>
+
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="accent" type="submit"
-                class="btn btn-success" (click)="preview()">Preview</button>
-        <button mat-raised-button color="accent" type="submit"
-                class="btn btn-success" (click)="submit()">Submit</button>
+      <mat-card-actions style="display: flex; padding: 2rem; padding-top: 0;">
+          <i style="font-size: 12px; padding-top: 8px; opacity: 0.8">
+            You can always skip ahead and come back if you haven't decided on a few things.
+          </i>
+          <span class="fill-space"></span>
+          <button mat-raised-button style="background-color: #00796b; color: whitesmoke;" type="submit"
+                  [disabled]="!startForm.form.valid"
+                  (click)="submit()"
+                  >Write</button>
       </mat-card-actions>
     </mat-card>
 

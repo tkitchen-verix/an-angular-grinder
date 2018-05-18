@@ -4,6 +4,9 @@ import {StartFormComponent} from "./start-form/start-form.component";
 import {SectionFormComponent} from "./section-form/section-form.component";
 import {FormsModule} from "@angular/forms";
 import {AnMaterialModule} from "../../../@theme/an-material/an-material.module";
+import {NgxEditorModule} from "ngx-editor";
+import {HttpModule} from "@angular/http";
+import {HttpClientModule} from "@angular/common/http";
 const COMPONENTS = [
   StartFormComponent,
   SectionFormComponent,
@@ -11,7 +14,10 @@ const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule,
+    HttpModule,
+    HttpClientModule,
     FormsModule,
+    NgxEditorModule,
     AnMaterialModule,
   ],
   declarations: [ ...COMPONENTS ],

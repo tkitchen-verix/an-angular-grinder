@@ -1,7 +1,7 @@
 <mat-toolbar class="transparent">
   <button mat-raised-button color="primary" routerLink="/articles/create">Create</button>
 </mat-toolbar>
-<mat-grid-list [cols]="$grid.cols" [rowHeight]="$grid.rowHeight">
+<mat-grid-list [cols]="1" [rowHeight]="$grid.rowHeight">
   <mat-grid-tile *ngFor="let item of $articles | async" [colspan]="1" [rowspan]="1">
     <mat-card class="dashboard-card">
       <mat-card-header>

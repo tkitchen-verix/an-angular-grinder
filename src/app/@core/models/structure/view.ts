@@ -7,6 +7,9 @@ export class ViewModel {
   sections: ViewSectionModel[];
   subtitle?: string;
   headerImg?: string;
+  // #TODO: create enum, type or db entry for categories
+  category: string;
+  cheers?: number;
   tags?: string[];
   created?: string;
   created_by?: string;

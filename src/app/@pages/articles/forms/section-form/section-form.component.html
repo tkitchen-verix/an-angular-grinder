@@ -4,16 +4,16 @@
       Add Sections
     </mat-panel-title>
     <mat-panel-description>
-      enter your chapter below . . .
-      <mat-icon>map</mat-icon>
+
     </mat-panel-description>
   </mat-expansion-panel-header>
-
   <mat-form-field class="example-full-width">
-  <input matInput placeholder="Section Title"
-  name="Title"
-  [(ngModel)]="temp_section.title">
+    <input matInput placeholder="Section Title"
+           name="Title"
+           [(ngModel)]="temp_section.title">
   </mat-form-field>
+  <app-ngx-editor [placeholder]="'Enter text here...'" [(ngModel)]="temp_section.description" [spellcheck]="true" ></app-ngx-editor>
+
   <mat-form-field class="example-form-field">
   <input matInput type="text" name="imageUrl" placeholder="Section Image (optional)" [(ngModel)]="temp_section.imageUrl"/>
   <button mat-button
@@ -26,23 +26,15 @@
   <!--<img [src]="temp_section.imageUrl" width="150" height="150">-->
   <!--</div>-->
   <br>
-  <mat-form-field class="example-full-width">
-  <textarea matInput
-  name="description"
-  placeholder="Description"
-  style="min-height: 100px;"
-  [(ngModel)]="temp_section.description"
-  ></textarea>
-  </mat-form-field>
-  <button mat-raised-button (click)="addBlock()">Add Block</button>
-  <div *ngFor="let block of temp_section.blocks">
-    <h6>block</h6>
-    <mat-form-field class="example-full-width">
-    <input matInput placeholder="Block Title"
-    name="title"
-    [(ngModel)]="block.title">
-    </mat-form-field>
-  </div>
+  <!--<button mat-raised-button (click)="addBlock()">Add Block</button>-->
+  <!--<div *ngFor="let block of temp_section.blocks">-->
+    <!--<h6>block</h6>-->
+    <!--<mat-form-field class="example-full-width">-->
+    <!--<input matInput placeholder="Block Title"-->
+    <!--name="title"-->
+    <!--[(ngModel)]="block.title">-->
+    <!--</mat-form-field>-->
+  <!--</div>-->
 
   <mat-action-row>
     <button mat-mini-fab (click)="onAdd()">

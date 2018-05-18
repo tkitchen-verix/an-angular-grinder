@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SessionService} from "../../../@core/data/session.service";
 import {Article} from "../../../@core/models/article";
+import {ViewModel} from "../../../@core/models/structure/view";
 
 @Component({
   selector: 'app-view',
@@ -8,7 +9,7 @@ import {Article} from "../../../@core/models/article";
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  model: Article;
+  model: ViewModel;
   message: string;
   canRender: boolean = true;
   constructor(
@@ -18,7 +19,7 @@ export class ViewComponent implements OnInit {
       this.model = this.session.getArticle();
       this.canRender = true;
     } else {
-      this.message = 'Ooops! No Article was held in the Session'
+      this.message = 'Ooops! No Article was held in the Session';
     }
   }
 

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {GridManager} from "../../../@theme/an-material/grid-manager";
-import {ViewModel} from "../../../@core/models/structure/view";
-import {Observable} from "rxjs/Rx";
-import {ArticlesService} from "../../../@core/data/articles.service";
-import {BreakpointObserver} from "@angular/cdk/layout";
-import {SessionService} from "../../../@core/data/session.service";
-import {Router} from "@angular/router";
-import {Article} from "../../../@core/models/article";
+import {GridManager} from '../../../@theme/an-material/grid-manager';
+import {ViewModel} from '../../../@core/models/structure/view';
+import {Observable} from 'rxjs/Rx';
+import {ArticlesService} from '../../../@core/data/articles.service';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {SessionService} from '../../../@core/data/session.service';
+import {Router} from '@angular/router';
+import {Article} from '../../../@core/models/article';
 
 @Component({
   selector: 'app-articles-home',
@@ -31,11 +31,13 @@ export class ArticlesHomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  readArticle(article: Article) {
-    let request = this.session.setArticle(article);
-    if(request === 'success') {
-      this.router.navigate(['articles/read/'+article.title]);
-    }
+  readArticle(article: ViewModel) {
+   this.session.setArticle(article)
+     .then(success => {
+       console.log('SSS');
+       this.router.navigate(['articles', 'read', article.title ]);
+     })
+     .catch(err => console.error(err));
   }
 
 }

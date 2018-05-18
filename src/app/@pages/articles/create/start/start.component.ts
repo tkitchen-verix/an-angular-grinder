@@ -2,7 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {ViewModel} from "../../../../@core/models/structure/view";
 import {WriteService} from "../../../../@core/data/write.service";
 import {Router} from "@angular/router";
-
+export class State {
+  constructor(public name: string, public population: string, public flag: string) { }
+}
+class Category {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'create-article-start',
   templateUrl: './start.component.html',
@@ -14,6 +20,36 @@ export class ArticleStartComponent implements OnInit {
   imgUrl: string;
   submitted = false;
   textBody: any;
+  categories: Category[]  = [
+    {
+      value: 'Angular',
+      viewValue: 'Angular Focused'
+    },
+    {
+      value: 'Cloud Platform',
+      viewValue: 'Cloud Platform'
+    },
+    {
+      value: 'General Stack',
+      viewValue: 'General Stack'
+    },
+    {
+      value: 'Tutorial',
+      viewValue: 'Tutorial'
+    },
+    {
+      value: 'Video Guide',
+      viewValue: 'Video Guide'
+    },
+    {
+      value: 'Firebase',
+      viewValue: 'Firebase'
+    },
+    {
+      value: 'Awesome',
+      viewValue: 'Awesome'
+    },
+  ];
   public headerImg: string;
   constructor(
     private service: WriteService,
@@ -25,9 +61,8 @@ export class ArticleStartComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('[Create Start] : ',this.model);
+    console.log('[Create Start] : ', this.model );
   }
-
   setHeaderImage() {
     this.model.headerImg = this.headerImg;
     this.headerImg = '';
@@ -49,7 +84,7 @@ export class ArticleStartComponent implements OnInit {
     // #TODO: save the model to cloud later - semi save
     // console.log(this.model)
     // // this.service.createDocument(this.model);
-    this.router.navigate(['articles','create','write'])
+    this.router.navigate(['articles', 'create', 'write'] )
   }
 
   preview() {

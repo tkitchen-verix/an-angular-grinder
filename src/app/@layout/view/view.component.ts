@@ -3,6 +3,7 @@ import { ViewModel } from '../../@core/models/structure/view';
 import {ViewService} from "./view.service";
 import {CarouselModel} from "../../@core/models/carousel";
 import {Router} from "@angular/router";
+import {SessionService} from "../../@core/data/session.service";
 const CAROUSEL: CarouselModel = {
   title: 'Articles',
   icon: 'comment'
@@ -18,24 +19,27 @@ export class ViewComponent implements OnInit {
   carousel: CarouselModel = CAROUSEL;
   constructor(
     private service: ViewService,
+    private session: SessionService,
     private router: Router
   ) {
     console.log('View Component');
-    this.router.events
-      .subscribe((event) => {
-        this.setViewTitle();
-      });
+    // this.router.events
+    //   .subscribe((event) => {
+    //     // this.setViewTitle();
+    //     console.log(event);
+    //     this.settings = this.session.getArticle();
+    // });
   }
 
   ngOnInit() {
     console.log('[Settings] : ', this.settings);
   }
   public setViewTitle() {
-    this.path = this.router.url;
-    this.path = this.path.replace('').split('/');
-    this.path = this.path[2];
-    console.log(this.path);
-    this.settings = this.service.getView(this.path);
-    this.carousel.title = this.settings.title;
+    // this.path = this.router.url;
+    // this.path = this.path.replace('').split('/');
+    // this.path = this.path[2];
+    // console.log(this.path);
+    // this.settings = this.service.getView(this.path);
+    // this.carousel.title = this.settings.title;
   }
 }

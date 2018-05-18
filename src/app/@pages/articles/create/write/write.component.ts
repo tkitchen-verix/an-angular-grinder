@@ -4,8 +4,6 @@ import {ViewModel, ViewSectionModel} from "../../../../@core/models/structure/vi
 import {Router} from "@angular/router";
 import {GridManager, GridManagerConfig} from "../../../../@theme/an-material/grid-manager";
 import {BreakpointObserver} from "@angular/cdk/layout";
-import {Helpers} from "../../../../@core/utils/helpers";
-import {ConsoleLogger} from "../../../../@core/utils/logger";
 const WRITE_GRID: GridManagerConfig = {
   extraSmall: 1,
   small: 1,
@@ -44,7 +42,7 @@ export class ArticleWriteComponent implements OnInit {
     this.$grid = new GridManager('200px', this.breakpointObserver);
     this.$grid.gridLayout = WRITE_GRID;
     this.$grid.watch();
-    this.$grid.cols.subscribe((cols)=>{
+    this.$grid.cols.subscribe((cols) => {
       this.grid_columns = cols;
       if(cols === WRITE_GRID.small) { this.small = true; this.mainCols = 1;}
       else {
@@ -64,7 +62,7 @@ export class ArticleWriteComponent implements OnInit {
   }
   getKeys(obj){
     let keys = [];
-    for(let key in obj){
+    for (let key in obj){
       keys.push(key);
     }
     return keys;
@@ -83,8 +81,7 @@ export class ArticleWriteComponent implements OnInit {
       let keys = this.getKeys(this.model.sections[0])
       console.log(keys)
       this.temp_section = new ViewSectionModel();
-    } else
-    {
+    } else {
       this.service.set_introduction = true;
       this.temp_section.type = 'Introduction';
       this.model.sections.splice(0, 0, this.temp_section);
@@ -95,12 +92,17 @@ export class ArticleWriteComponent implements OnInit {
 
   toggleLayout(event){
     console.log(event);
-    if(event.checked === false) { this.mainCols = 2 }
-    else {this.mainCols = 1};
+    if (event.checked === false) {
+      this.mainCols = 2;
+    } else {
+      this.mainCols = 1;
+    }
   }
-
+  preview() {
+    this.router.navigate(['articles', 'create', 'preview']);
+  }
   back() {
-    this.router.navigate(['articles','create', 'start']);
+    this.router.navigate(['articles', 'create', 'start']);
   }
 
 }

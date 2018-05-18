@@ -4,7 +4,7 @@ import { ViewComponent } from './view.component';
 
 const ROUTES: Routes = [
   {
-    path: ':viewTitle',
+    path: '/:viewTitle',
     component: ViewComponent
   }
 ];

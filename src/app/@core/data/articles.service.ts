@@ -18,7 +18,7 @@ export class ArticlesService {
     console.log('[ARTICLES]', this);
     this.$firebase = window.firebase;
     this.$db = this.$firebase.firestore().collection('article-collection');
-    this.articleCollection = this.$db.get().then((res)=>{
+    this.articleCollection = this.$db.get().then((res) => {
       console.log(res);
     });
     this.articles = afs.collection<ViewModel>('article-collection').valueChanges();
@@ -29,8 +29,9 @@ export class ArticlesService {
   {
     article.created = new Date().toDateString();
     article.created_by = 'Verix';
+    article.cheers = 0;
     this.$db.add(JSON.parse( JSON.stringify(article))).then(
-      (ref)=>
+      (ref) =>
         {
           //
           console.log(ref);

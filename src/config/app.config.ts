@@ -58,6 +58,7 @@ export const _APP_CONFIG_V_1: AppConfigModel = {
     {
       article_id: 'test',
       title: 'new',
+      category: 'Test',
       sections: [
         {
           id: 'vol-01',
@@ -226,6 +227,7 @@ export const _APP_CONFIG_V_1: AppConfigModel = {
     {
       article_id: 'test',
       title: 'articles',
+      category: 'Test',
       sections: [
         {
           id: 'vol-01',

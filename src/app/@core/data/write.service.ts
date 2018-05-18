@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ViewModel, ViewSectionModel} from "../models/structure/view";
 import {BlockComponentModel} from "../models/structure/block";
+import {ArticlesService} from "./articles.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ export class WriteService {
   model: ViewModel;
 
   set_introduction: boolean;
-  constructor() {
+  constructor(
+    private database: ArticlesService
+  ) {
     console.log('[Write Service] : Initialised')
     this.model = new ViewModel();
     this.model.tags = [];
@@ -38,5 +41,8 @@ export class WriteService {
     this.model.sections.push(new ViewSectionModel());
     this.model.sections[0].blocks = [];
     this.model.sections[0].blocks.push(new BlockComponentModel());
+  }
+  saveArticle() {
+    this.database.createDocument(this.model);
   }
 }

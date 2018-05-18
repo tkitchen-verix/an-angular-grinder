@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Article} from "../models/article";
+import {ViewModel} from "../models/structure/view";
 
 export class Session {
   active: boolean = false;
-  currentArticle: Article;
+  currentArticle: ViewModel;
 }
 
 @Injectable({
@@ -13,16 +14,23 @@ export class SessionService {
   model: Session = new Session();
   constructor() { }
 
-  setArticle(article: Article): string | Error {
-    this.model.currentArticle = article;
-    this.model.active = true;
-    return 'success'
+  setArticle(article: ViewModel): Promise<any> {
+
+    return new Promise((resolve, reject) => {
+      this.model.currentArticle = article;
+      this.model.active = true;
+      if ( this.model ) {
+          resolve(true);
+      } else {
+        reject('No Article could be set');
+      }
+    });
+
   }
-  getArticle(): Article {
+  getArticle(): ViewModel {
     if(this.model.currentArticle) {
       return this.model.currentArticle;
-    }
-    else {
+    } else {
       throw new Error('No Article');
     }
   }

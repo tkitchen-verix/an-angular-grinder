@@ -1,3 +1,32 @@
-<p>
-  preview works!
-</p>
+<mat-toolbar>
+  <div style="display: flex">
+    <span>
+      <button mat-raised-button (click)="back()">BACK</button>
+    </span>
+    <span style="flex: 1 1 auto;"></span>
+    <!--<span *ngIf="!small">-->
+    <!--<mat-slide-toggle-->
+    <!--class="example-margin"-->
+    <!--[color]="color"-->
+    <!--[checked]="checked"-->
+    <!--(change)="toggleLayout($event)"-->
+    <!--[disabled]="disabled">-->
+    <!--Slide me!-->
+    <!--</mat-slide-toggle>-->
+    <!--</span>-->
+    <span>
+      <button mat-raised-button (click)="submit()">NEXT</button>
+  </span>
+
+  </div>
+</mat-toolbar>
+<div class="container">
+  <div *ngIf="model">
+    <h1 mat-card-title>{{model.title}}</h1>
+  </div>
+  <div *ngFor="let section of model.sections">
+    <div [innerHTML]="section.description"></div>
+  </div>
+</div>
+
+

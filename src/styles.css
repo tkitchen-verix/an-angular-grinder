@@ -68,10 +68,6 @@ body {
   padding-top: 2rem;
 }
 
-.form-container
-{
-  padding: 1rem;
-}
 .grid-item {
   flex: 1 1 auto;
 }
@@ -93,7 +89,8 @@ mat-grid-tile .mat-figure {
 }
 .form-container {
   min-width: 150px;
-  max-width: 500px;
+  max-width: 960px;
+  margin: auto;
 }
 
 .centered-grid {
@@ -125,4 +122,50 @@ mat-grid-tile .mat-figure {
   transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
 
   /*background-color: #B2DFDB;*/
+}
+.full-width {
+  width:100%;
+  display: block;
+}
+/* Small Screen */
+@media screen and (min-width: 500px) {
+  .form-view-container {
+    margin: 0;
+  }
+}
+/* Medium Screen */
+@media screen and (min-width: 900px) {
+  .form-view-container {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+.form-view-container {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.an-form-field {
+  min-width: 200px;
+  margin-left: 1rem;
+}
+.large-input {
+  padding-top: 22px;
+  font-size: 22px;
+  height: 50px;
+  min-width: 45%;
+}
+.medium-input {
+  padding-top: 16px;
+  font-size: 16px;
+  min-width: 45%;
+}
+.form-container
+{
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 960px;
+}
+.ngx-editor-textarea {
+  min-height: 200px !important;
 }
